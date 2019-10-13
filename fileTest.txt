@@ -1,0 +1,83 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package filetestmain;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import static java.sql.DriverManager.println;
+import java.util.StringTokenizer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ *
+ * @author 7500
+ */
+class FileTest {
+     public void fileWrite()
+    {
+        PrintWriter out = null;
+        try {
+            File dstFile = new File("outputfile.txt");
+            out = new PrintWriter
+                                (new BufferedWriter(new FileWriter(dstFile)));
+            out.print("Hello ");
+            out.println("world");
+            out.println("Zain      22  3.15");
+            out.println("Shaz      21  3.4");
+            out.println("Ummam     22  3.5");
+            out.println("Ali       22  3.5");
+            out.println("Ibraheem  22  3.76");
+            out.close();
+        } catch (IOException e) {
+        } 
+    }
+     
+
+    void consoleread()
+    {
+        try{
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        System.out.print("What is your first name? ");
+        String first = in.readLine();
+        System.out.print("What is your last name? ");
+        String last = in.readLine();
+        System.out.println("Your name is " + last + ", " + first + "."); //To change body of generated methods, choose Tools | Templates.
+    }catch(IOException e){}
+    }
+    public void fileRead() 
+    {
+        try{
+        File srcFile = new File("outputfile.txt");
+        BufferedReader in = new BufferedReader(new FileReader(srcFile));
+        for(int i = 1;i<5;i++){
+            String text = in.readLine();
+            System.out.println(text);}
+        in.close();}
+        catch(IOException e){}
+    }
+    public void tokenizer(){
+   
+       StringTokenizer tokenizer;
+       tokenizer = new StringTokenizer("Zain Ahmed Baig 22 3.15", " ");
+       
+       
+       while(tokenizer.hasMoreTokens())
+        {
+            System.out.println(tokenizer.nextToken());
+        }
+     }
+   }
+    
+
+
+
